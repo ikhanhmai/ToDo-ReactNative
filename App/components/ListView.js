@@ -1,12 +1,11 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {Component} from 'react';
-import {Text, View, TouchableHighlight} from 'react-native';
+import {View} from 'react-native';
 import TodoModel from '../models/ToDoModel';
 import SearchOrCreateTextInput from './SearchOrCreateTextInput';
 import SortableListView from 'react-native-sortable-listview';
 import ListViewItem from './ListViewItem';
 import Utils from '../helpers/Utils';
-
 let dataList = [
   new TodoModel('Hello world'),
   new TodoModel('Make a Todo App with React Native'),
@@ -30,7 +29,7 @@ function moveOrderItem(listView, fromIndex, toIndex) {
   }
 }
 
-export default class ListView extends Component {
+class ListView extends Component {
   constructor(props) {
     super(props);
     this.updateDataList = this.updateDataList.bind(this);
@@ -85,3 +84,4 @@ export default class ListView extends Component {
     );
   }
 }
+export default ListView;

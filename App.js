@@ -1,13 +1,16 @@
 import React, {Component} from 'react';
 import {StyleSheet, View} from 'react-native';
 import ListView from './App/components/ListView';
-
+import {Provider} from 'react-redux';
+import store from './App/store';
 export default class TodoApp extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <ListView />
-      </View>
+      <Provider store={store}>
+        <View style={styles.container}>
+          <ListView />
+        </View>
+      </Provider>
     );
   }
 }

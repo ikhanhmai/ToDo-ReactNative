@@ -8,7 +8,6 @@ export default class SearchOrCreateTextInput extends Component {
   constructor(props) {
     super(props);
     this.onChange = this.onChange.bind(this);
-    this.onKeyPress = this.onKeyPress.bind(this);
   }
 
   componentWillMount() {
@@ -18,7 +17,6 @@ export default class SearchOrCreateTextInput extends Component {
   }
 
   onChange(event) {
-    console.log('event 1', event.nativeEvent);
     var title = event.nativeEvent.text;
     var dataList = this.props.data.filter(item =>
       item.title.match(new RegExp('.*' + title + '.*', 'gi')),
@@ -29,9 +27,7 @@ export default class SearchOrCreateTextInput extends Component {
     });
     this.props.updateDataList(dataList);
   }
-  onKeyPress() {}
   onPress = event => {
-    console.log('event 2', event.nativeEvent);
     if (this.state.newValue) {
       var newDataItem = new TodoModel(this.state.newValue);
 
@@ -73,7 +69,6 @@ export default class SearchOrCreateTextInput extends Component {
           placeholder="Add a todo or Search"
           blurOnSubmit={false}
           value={this.state.newValue}
-          onKeyPress={this.onKeyPress}
           onChange={this.onChange}
         />
         <TouchableHighlight
